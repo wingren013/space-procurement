@@ -12,7 +12,7 @@ public:
 	~Ship_Base();
 	Ship_Class_Base	*ship_class;
 
-private:
+protected:
 	//so save file size is going to be a concern here. Remember keep it memory light.
 	//component hp, assume components with hp == 0 are destroyed while components with hp < 0 are inactive.
 	//if components are inactive damage needs to be added rather than subtracted for obvious reasons.
@@ -41,6 +41,9 @@ private:
 	double				ablative_threshold //represents the percent of hull remaining at which point component damage becomes possible. check if (double)hull_hp[x] >= ablative_threshold * hull_hp_max[x];
 
 //not sure what functions needed yet beyond a bunch of stuff to check things and set things.
+private:
+
+}
 Ship_Base::Ship_Base()
 {
 }
