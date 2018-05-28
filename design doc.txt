@@ -16,3 +16,9 @@ Components should be made by their own companies by version 1.0
 
 	ships have five sections. port, starboard, aft, forward, center. Center destruction destroys ship.
 Each section has its own shielding with center shielding applying tot he whole ship.
+
+
+version 0.1 get the battle grid ui and battles working.
+version 0.2 get ship design generator working.
+version 0.3 get galaxy map working.
+version 0.4 ?
