@@ -20,4 +20,5 @@ Each section has its own shielding with center shielding applying tot he whole s
 version 0.1 get ship design generator working.
 version 0.2 get the battle grid ui and battles working.
 version 0.3 get galaxy map working.
-version 0.4 ?
+version 0.4 get basic game working
+version 0.5 politics + move to private repo
