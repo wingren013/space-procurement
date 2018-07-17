@@ -48,7 +48,8 @@ protected:
 	int					hull_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 	int					shield_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 
-	double				ablative_threshold //represents the percent of hull remaining at which point component damage becomes possible. check if (double)hull_hp[x] >= ablative_threshold * hull_hp_max[x];
+	float				ablative_threshold //represents the amount of armor. percent of hull remaining at which point component damage becomes possible. check if (double)hull_hp[x] >= ablative_threshold * hull_hp_max[x];
+	unsigned int		componentREF_armor; //
 
 	//componentREF_foo[0] matches up with componentHP_foo[0] and componentHP_foo_max[0]
 	//we store a pointer to the component rather than its id for ease of use. On second thought it might be better to do it via id.
@@ -72,7 +73,7 @@ protected:
 	Ship_Hull_Base				*hull_model;
 	/*	std::vector<Character*>		characterREF;
 		std::vector<Culture*>		crew_cultureREF;
-		std::vector<double>			crew_culturePER // percentage of the crew for each culture
+		std::vector<float>			crew_culturePER // percentage of the crew for each culture
 	future stuff */
 	//ship status is denoted by which array it is in i.e. status_array_refit. status is changed by switching arrays. This saves memory.
 	
@@ -86,49 +87,49 @@ Ship_Base::Ship_Base()
 
 Ship_Base::Ship_Base(Ship_Class_Base ship_class)
 {
-	this.ship_class = ship_class;
+	this->ship_class = ship_class;
 	
 	//shields
 	for(int i = 0; i < ship_class.get_shields().size; i++)
 	{
-		this.componentREF_shields.push_back(ship_class.get_shields()[i]);
-		this.componentHP_shields.push_back(0);
-		this.componentHP_shields_max.push_back(g_components[ship_class.getshields()[i]]->get_hp());
+		this->componentREF_shields.push_back(ship_class.get_shields()[i]);
+		this->componentHP_shields.push_back(0);
+		this->componentHP_shields_max.push_back(g_components[ship_class.getshields()[i]]->get_hp());
 	}
 	//weapons
 	for(int i = 0; i < ship_class.get_weapons().size; i++)
 	{
-		this.componentREF_weapons.push_back(ship_class.get_weapons()[i]);
-		this.componentHP_weapons.push_back(0);
-		this.componentHP_weapons_max.push_back(g_components[ship_class.get_weapons()[i]]->get_hp());
+		this->componentREF_weapons.push_back(ship_class.get_weapons()[i]);
+		this->componentHP_weapons.push_back(0);
+		this->componentHP_weapons_max.push_back(g_components[ship_class.get_weapons()[i]]->get_hp());
 	}
 	//engines
 	for(int i = 0; i < ship_class.get_engines().size; i++)
 	{
-		this.componentREF_engines.push_back(ship_class.get_engines()[i]);
-		this.componentHP_engines.push_back(0);
-		this.componentHP_engines_max.push_back(g_components[ship_class.get_engines()[i]]->get_hp());
+		this->componentREF_engines.push_back(ship_class.get_engines()[i]);
+		this->componentHP_engines.push_back(0);
+		this->componentHP_engines_max.push_back(g_components[ship_class.get_engines()[i]]->get_hp());
 	}
 	//sensors
 	for(int i = 0; i < ship_class.get_sensors().size; i++)
 	{
-		this.componentREF_sensors.push_back(ship_class.get_sensors()[i]);
-		this.componentHP_sensors.push_back(0);
-		this.componentHP_sensors_max.push_back(g_components[ship_class.get_sensors()[i]]->get_hp());
+		this->componentREF_sensors.push_back(ship_class.get_sensors()[i]);
+		this->componentHP_sensors.push_back(0);
+		this->componentHP_sensors_max.push_back(g_components[ship_class.get_sensors()[i]]->get_hp());
 	}
 	//crew
 	for(int i = 0; i < ship_class.get_crew().size; i++)
 	{
-		this.componentREF_crew.push_back(ship_class.get_crew()[i]);
-		this.componentHP_crew.push_back(0);
-		this.componentHP_crew_max.push_back(g_components[ship_class.get_crew()[i]]->get_hp());
+		this->componentREF_crew.push_back(ship_class.get_crew()[i]);
+		this->componentHP_crew.push_back(0);
+		this->componentHP_crew_max.push_back(g_components[ship_class.get_crew()[i]]->get_hp());
 	}
 	//support
 	for(int i = 0; i < ship_class.get_support().size; i++)
 	{
-		this.componentREF_support.push_back(ship_class.get_support()[i]);
-		this.componentHP_support.push_back(0);
-		this.componentHP_support_max.push_back(g_components[ship_class.get_support()[i]]->get_hp());
+		this->componentREF_support.push_back(ship_class.get_support()[i]);
+		this->componentHP_support.push_back(0);
+		this->componentHP_support_max.push_back(g_components[ship_class.get_support()[i]]->get_hp());
 	}
 }
 
@@ -138,11 +139,11 @@ Ship_Base::~Ship_Base()
 
 int		Ship_Base::Refit(Ship_Class_Base *refit_class)
 {
-	if (refit_class.get_hull_model() == this.hull_model)
+	if (refit_class.get_hull_model() == this->hull_model)
 	{
 		//do refit
 		//refit logic: check for damaged components and repair first one, if no damaged components found then check if all components match class. If yes refit is done. If no change first component to match class and set component hp to 0.
-		this.ship_class = refit_class; //components will get changed over time to this standard.
+		this->ship_class = refit_class; //components will get changed over time to this standard.
 		return (1);
 	}
 	return (0);
