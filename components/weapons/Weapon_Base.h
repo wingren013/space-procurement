@@ -27,14 +27,14 @@ protected:
 	float			effectiveness_range; //the randomized effectiveness of this stat. if using base effectiveness then take the median of the two. The AI needs to look at this which is why weapon designs don't have a seperate class
 	
 	//accuracy
-	float			accuracy_at_range[4]; //accuracy at corresponding range band;
+	float			accuracy[4]; //accuracy at corresponding range band;
 	bool			effectivenessModifiedByBase_accuracy = true;
 	//float			accuracy_effectiveness_min;
 	//float			accuracy_effectiveness_max;
 	float			effectiveness_accuracy;
 	
 	//damage
-	int				damage;
+	int				damage[4]; //damage corresponding to range band
 	bool			effectivenessModifiedByBase_ = true;
 	//float			damage_effectiveness_min;
 	//float			damage_effectivenss_max;
@@ -104,11 +104,11 @@ Weapon_Base::~Weapon_Base()
 	
 }
 
-int				Component_Base::get_damage(void)
+int				Component_Base::get_damage(int range)
 {
 	if (this->effectivenessModifiedByBase_damage)
-		return ((this->effectiveness_damage + this->base_effectivenss / 2.0) * this->damage);
-	return (this->effectiveness_damage * this->damage);
+		return ((this->effectiveness_damage + this->base_effectivenss / 2.0) * this->damage[range]);
+	return (this->effectiveness_damage * this->damage[range]);
 }
 
 #endif

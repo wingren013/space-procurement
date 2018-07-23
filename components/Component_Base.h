@@ -16,8 +16,8 @@ protected:
 	
 	float			base_effectiveness; //the key to our little game, this will be randomized. 1.5 means 50% more effective
 	float			effectiveness;
-	float			effectiveness_min;
-	float			effectiveness_max;
+	//float			effectiveness_min;
+	//float			effectiveness_max;
 	unsigned long	base_build_cost; //how much production does it take
 	float			buildCostFactor_base;
 	//float			buildCostFactor_min;
@@ -26,9 +26,6 @@ protected:
 	float			buyCostFactor_base;
 	//float			buyCostFactor_min;
 	//float			buyCostFactor_max;
-	unsigned int	id; //this is important. its the order in which its stored in the global component array and the key used to access it.
-	unsigned int	manufacturer_id; //who made it.
-	std::string		descr; //description.
 	
 	//hp ; see weapon_base class for documentation on attributes
 	int				max_hp;
@@ -36,6 +33,16 @@ protected:
 	//float			hp_effectiveness_min;
 	//float			hp_effectiveness_max;
 	float			effectiveness_hp;
+	
+	unsigned int	tonnage; //the space used.
+	bool			effectivenessModifiedByBase_tonnage = true;
+	//float			effectiveness_tonnage_min;
+	//float			effectiveness_tonnage_max;
+	float			effectiveness_tonnage;
+	
+	unsigned int	id; //this is important. its the order in which its stored in the global component array and the key used to access it.
+	unsigned int	manufacturer_id; //who made it.
+	std::string		descr; //description.
 	
 private:
 }

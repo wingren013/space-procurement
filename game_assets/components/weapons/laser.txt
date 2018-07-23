@@ -1,0 +1,36 @@
+; everything after semicolon is ignored. # denotes a line to be read
+#weapon ; first entry is type. This tells our program to what object to create and where to put it
+#name "Standard Laser" ; note the syntax
+#effectiveness_min 0.5 ; note the syntax
+#effectiveness_max 2.0 ; maximum effectiveness
+#base_build_cost 10 ; note the syntax
+#buildCostFactor_min 0.5
+#buildCostFactor_max 2.0
+#base_buy_cost 10
+#buyCostFactor_min 0.5
+#buyCostFactor_max 2.0
+#max_hp 40
+#hp_mod true ; whether or not the effectiveness is modified by the base effectiveness. could have also not written this as it defaults to true
+#effectiveness_hp_min 0.5
+#effectiveness_hp_max 2.0
+#tonnage 10
+I don't need to put tonnage_mod here as it defaults to true. note how I don't need to comment this
+#effectiveness_tonnage_min 0.5
+#effectiveness_tonnage_max 2.0
+
+#descr "optional description string"
+
+weapon attributes go here for structural reasons but you could put them before just as easily.
+
+#range_band 0 10 20 30
+#effectiveness_range_min 0.5
+#effectiveness_range_max 2.0
+
+#accuracy 1.0 1.0 1.0 1.0
+#accuracy_mod false ; lasers are always 100% accurate
+#effectiveness_accuracy_min 1
+#effectiveness_accuracy_max 1
+
+#damage 20 18 16 14; google fluence, beam waist, and diffraction if you disagree with laser damage falling off over distance
+#effectiveness_damage_min 0.5
+#effectiveness_damage_max 2.0

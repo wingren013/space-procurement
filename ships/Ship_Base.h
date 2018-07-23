@@ -55,7 +55,7 @@ protected:
 	int					shield_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 
 	float				ablative_threshold //represents the amount of armor. percent of hull remaining at which point component damage becomes possible. check if (double)hull_hp[x] >= ablative_threshold * hull_hp_max[x];
-	unsigned int		componentREF_armor; //
+	unsigned int		componentREF_armor; //unused for the moment, pending decision on how I want armor to work. Sots2 damage grid would be cool. As would a crit slot system.
 
 	//componentREF_foo[0] matches up with componentHP_foo[0] and componentHP_foo_max[0]
 	//we store a pointer to the component rather than its id for ease of use. On second thought it might be better to do it via id.
