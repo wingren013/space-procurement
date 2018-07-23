@@ -22,8 +22,13 @@ public:
 	
 	int	Refit(Ship_Class_Base *ship_class);
 	void	hp_to_max();
+	
+	std::vector<int>	get_shield_hp();
+	int					get_shield_hp(size_t i);
 protected:
 	//so save file size is going to be a concern here. Remember keep it memory light.
+	String				name;
+	
 	//component hp, assume components with hp == 0 are destroyed while components with hp < 0 are inactive.
 	//if components are inactive damage needs to be added rather than subtracted for obvious reasons.
 	//Flipping components to active means just multiplying by -1
@@ -38,6 +43,7 @@ protected:
 	int					hull_hp[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 	int					shield_hp[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 
+	//we need our own copy of max hp because of partial refits
 	std::vector<int>	componentHP_shields_max;
 	std::vector<int>	componentHP_weapons_max;
 	std::vector<int>	componentHP_engines_max;
@@ -62,7 +68,7 @@ protected:
 	std::vector<Support_Base*>	componentREF_support;
 	*/
 	
-	//if anybodies game break because they've reached UINT_MAX components I will personally refactor the entire codebase to change it to longs.
+	//if anybodies game breaks because they've reached UINT_MAX components I will personally refactor the entire codebase to change it to longs.
 	std::vector<unsigned int>	componentREF_shields;
 	std::vector<unsigned int>	componentREF_weapons;
 	std::vector<unsigned int>	componentREF_engines;
@@ -70,7 +76,7 @@ protected:
 	std::vector<unsigned int>	componentREF_crew;
 	std::vector<unsigned int>	componentREF_support;
 	
-	Ship_Hull_Base				*hull_model;
+	unsigned int				hull_model; //this is an index in the global ship_class array that represents the original model. For variants and refits this would be the base class, i.e. a T72-B1 would have T-72 for this
 	/*	std::vector<Character*>		characterREF;
 		std::vector<Culture*>		crew_cultureREF;
 		std::vector<float>			crew_culturePER // percentage of the crew for each culture
@@ -78,16 +84,26 @@ protected:
 	//ship status is denoted by which array it is in i.e. status_array_refit. status is changed by switching arrays. This saves memory.
 	
 //not sure what functions needed yet beyond a bunch of stuff to check things and set things.
-private:
 	Ship_Class_Base	*ship_class; //use this to populate our design, can be changed to accomodate for refits.
+private:
+	
 }
 Ship_Base::Ship_Base()
 {
 }
 
+Ship_Base::~Ship_Base()
+{
+}
+
+/*each ship must have their own unique component arrays to support partial refits. Must decide if this gameplay feature is worth it.
+if I decide its not worth it I can rip out the componentRefs and just grab them from its ship_class */
 Ship_Base::Ship_Base(Ship_Class_Base ship_class)
 {
 	this->ship_class = ship_class;
+	
+	//hull
+	this->hull_hp_max
 	
 	//shields
 	for(int i = 0; i < ship_class.get_shields().size; i++)
@@ -131,10 +147,6 @@ Ship_Base::Ship_Base(Ship_Class_Base ship_class)
 		this->componentHP_support.push_back(0);
 		this->componentHP_support_max.push_back(g_components[ship_class.get_support()[i]]->get_hp());
 	}
-}
-
-Ship_Base::~Ship_Base()
-{
 }
 
 int		Ship_Base::Refit(Ship_Class_Base *refit_class)
