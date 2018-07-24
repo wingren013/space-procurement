@@ -31,6 +31,17 @@ weapon attributes go here for structural reasons but you could put them before j
 #effectiveness_accuracy_min 1
 #effectiveness_accuracy_max 1
 
-#damage 20 18 16 14; google fluence, beam waist, and diffraction if you disagree with laser damage falling off over distance
+#damage 20 18 16 14 ; google fluence, beam waist, and diffraction if you disagree with laser damage falling off over distance
 #effectiveness_damage_min 0.5
 #effectiveness_damage_max 2.0
+
+#fire_rate 0.5 ; defaults to 1.0
+#effectiveness_fire_rate_min 0.5
+#effectiveness_fire_rate_max 2.0
+
+#armor_pen 0.7 ; 70% armor pen.
+#effectiveness_armor_pen_min 0.5
+#effectiveness_armor_pen_max 2.0
+
+#allowed_mountings 7 ; bitmask 1 for external, 2 for internal, 4 for turreted, 8 for silo.
+

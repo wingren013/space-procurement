@@ -41,7 +41,7 @@ protected:
 	float			effectiveness_damage;
 	
 	//shots
-	float			fire_rate; // 1 means 1 shot per turn. 0.5 means 2 shots per turn. 1.2 means ne shot a turn skipping the a turn every first of five, etc...
+	float			fire_rate = 1.0; // 1 means 1 shot per turn. 0.5 means 2 shots per turn. 1.2 means ne shot a turn skipping the a turn every first of five, etc...
 	bool			effectivenessModifiedByBase_fire_rate = true;
 	//float			fire_rate_effectiveness_min;
 	//float			fire_rate_effectiveness_max;
@@ -75,20 +75,24 @@ protected:
 	
 	//hull damage bonus
 	
+	/*
+	So turrets should be their own thing. Basically a weapon that holds another weapon with its own armor. I'll decide how that should work in a future version
 	//turret buy cost factor
-	float			buyCostFactor_turret; //multiply cost by this if its a turret.
+	float			buyCostFactor_turret = 2.0; //multiply cost by this if its a turret. Defaults to double
 	bool			effectivenessModifiedByBase_buyCostFactor_turret = true;
 	//float			turret_cost_factor_effectiveness_min;
 	//float			turret_cost_factor_effectiveness_max;
 	float			effectiveness_buyCostFactor_turret;
 	
 	//turret build cost factor
-	float			buildCostFactor_turret; //multiply cost by this if its a turret.
+	float			buildCostFactor_turret = 2.0; //multiply cost by this if its a turret. Defaults to double
 	bool			effectivenessModifiedByBase_buildCostFactor_turret = true;
 	//float			turret_cost_factor_effectiveness_min;
 	//float			turret_cost_factor_effectiveness_max;
 	float			effectiveness_buildCostFactor_turret;
 	
+	float			tonnageFactor_turret = 2.0; //multiply tonnage by this if a turret. Defaults to double.
+	*/
 	char			allowed_mountings // bitmask. 1 for internal fixed, 2 for external fixed, 4 for turreted. 8 for silo. fixed mounts have a 45 degree angle. Turrets have a 90 degree angle. Silos are for launched weapons and can be fit in the center section unlike other weapons
 	
 private:
