@@ -1,3 +1,5 @@
+#include <string>
+
 class Ship_Class_Base
 {
 public:
@@ -31,49 +33,4 @@ protected:
 	//ai stuff
 	//role
 private:
-}
-
-Ship_Class_Base::Ship_Class_Base()
-{
-	
-}
-
-Ship_Class_Base::~Ship_Class_Base()
-{
-	
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_shields()
-{
-	return (this->componentREF_shields);
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_weapons()
-{
-	return (this->componentREF_weapons);
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_engines()
-{
-	return (this->componentREF_engines);
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_sensors()
-{
-	return (this->componentREF_sensors);
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_crew()
-{
-	return (this->componentREF_crew);
-}
-
-Ship_Class_Base::std::vector<unsigned int>	get_support()
-{
-	return (this->componentREF_support);
-}
-
-Ship_Class_Base::unsigned int	tonnage_used()
-{
-	
 }

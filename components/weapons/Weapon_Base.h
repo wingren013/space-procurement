@@ -1,7 +1,7 @@
 #ifndef Weapon_Base
 # define Weapon_Base
 
-#include Component_Base.h
+#include "Component_Base.h"
 
 class	Weapon_Base : public Component_Base()
 {
@@ -76,7 +76,7 @@ protected:
 	//hull damage bonus
 	
 	/*
-	So turrets should be their own thing. Basically a weapon that holds another weapon with its own armor. I'll decide how that should work in a future version
+	So turrets should be their own thing. Basically a weapon that holds other weapons and has its own armor. I'll decide how that should work in a future version. The simplified turret mechanics detailed below should work but the switch from casemates to turrets are sort of a big deal in the development of naval technology and it would be cool to have a game where turrets are utterly trash or something
 	//turret buy cost factor
 	float			buyCostFactor_turret = 2.0; //multiply cost by this if its a turret. Defaults to double
 	bool			effectivenessModifiedByBase_buyCostFactor_turret = true;
@@ -96,23 +96,6 @@ protected:
 	char			allowed_mountings // bitmask. 1 for internal fixed, 2 for external fixed, 4 for turreted. 8 for silo. fixed mounts have a 45 degree angle. Turrets have a 90 degree angle. Silos are for launched weapons and can be fit in the center section unlike other weapons
 	
 private:
-}
-
-Weapon_Base::Weapon_Base()
-{
-	
-}
-
-Weapon_Base::~Weapon_Base()
-{
-	
-}
-
-int				Component_Base::get_damage(int range)
-{
-	if (this->effectivenessModifiedByBase_damage)
-		return ((this->effectiveness_damage + this->base_effectivenss / 2.0) * this->damage[range]);
-	return (this->effectiveness_damage * this->damage[range]);
 }
 
 #endif

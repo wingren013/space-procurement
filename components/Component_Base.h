@@ -13,6 +13,7 @@ public:
 	int				get_hp();
 	
 protected:
+	std::string		name;
 	
 	float			base_effectiveness; //the key to our little game, this will be randomized. 1.5 means 50% more effective
 	float			effectiveness;
@@ -45,23 +46,6 @@ protected:
 	std::string		descr; //description.
 	
 private:
-}
-
-Component_Base::Component_Base()
-{
-	
-}
-
-Component_Base::~Component_Base()
-{
-	
-}
-
-int				Component_Base::get_hp(void)
-{
-	if (this->effectivenessModifiedByBase_hp)
-		return ((this->effectiveness_hp + this->base_effectivenss / 2.0) * this->max_hp);
-	return (this->effectiveness_hp * this->max_hp);
 }
 
 #endif
