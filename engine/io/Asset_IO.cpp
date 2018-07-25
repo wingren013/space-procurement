@@ -3,7 +3,17 @@
 //for weapons
 void			read_to_component(std::string str, Weapon_Base component)
 {
-	
+			//split line up
+			for (int i = 0; Component_Base.attributesComponents[i] != 0; i++)
+			{
+				if ( == Component_Base.attributesComponents[i])
+				//do stuff
+			}
+			for (int i = 0; Component_Base.attributesComponents[i] != 0; i++)
+			{
+				if ( == Component_Base.attributesWeapons[i])
+				//do stuff:wq
+			}
 }
 
 //for shields

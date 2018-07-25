@@ -1,5 +1,5 @@
 ; everything after semicolon is ignored. # denotes a line to be read
-#weapon ; first entry is type. This tells our program to what object to create and where to put it
+#weapon ; first entry must be type. This tells our program to what object to create and where to put it
 #name "Standard Laser" ; note the syntax
 #effectiveness_min 0.5 ; note the syntax
 #effectiveness_max 2.0 ; maximum effectiveness

@@ -13,7 +13,7 @@ class Asset_IO
 			"buildCostFactor_min", "buildCostFactor_max", "base_buy_cost", "buyCostFactor_min",
 			"buyCostFactor_max", "max_hp", "hp_mod", "effectiveness_hp_min", "effectiveness_hp_max",
 			"tonnage", "tonnage_mod", "effectiveness_tonnage_min", "effectiveness_tonnage_max",
-			"descr"
+			"descr", 0
 		};
 		static std::string		attributesWeapons[] =
 		{
@@ -22,7 +22,7 @@ class Asset_IO
 			"damage", "damage_mod", "effectiveness_damage_min", "effectiveness_damage_max",
 			"fire_rate", "fire_rate_mod", "effectiveness_fire_rate_min", "effectiveness_fire_rate_max",
 			"armor_pen", "armor_pen_mod", "effectiveness_armor_pen_min", "effectiveness_armor_pen_max",
-			"allowed_mountings"
+			"allowed_mountings", 0
 		};
 	private:
 }
