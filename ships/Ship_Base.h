@@ -51,7 +51,7 @@ protected:
 	std::vector<int>	componentHP_crew_max; //crew quarters always 0. No need to simulate seperate crew quarters aside from VIP suites
 	std::vector<int>	componentHP_support_max;
 
-	int					hull_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4
+	int					hull_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4. if you lose two out of three sections the ship is destroyed
 	int					shield_hp_max[5]; //center 0, starboard 1, port 2, forward 3, aft 4
 
 	float				ablative_threshold //represents the amount of armor. percent of hull remaining at which point component damage becomes possible. check if (double)hull_hp[x] >= ablative_threshold * hull_hp_max[x];

@@ -19,7 +19,7 @@ protected:
 	float			effectiveness;
 	//float			effectiveness_min;
 	//float			effectiveness_max;
-	unsigned long	base_build_cost; //how much production does it take
+	unsigned long	base_build_cost; //how much production does it take. Buy and Build costs aren't affected by base_effectiveness.
 	float			buildCostFactor_base;
 	//float			buildCostFactor_min;
 	//float			buildCostFactor_max;
