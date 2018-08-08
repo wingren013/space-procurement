@@ -42,8 +42,10 @@ protected:
 	float			effectiveness_tonnage;
 	
 	unsigned int	id; //this is important. its the order in which its stored in the global component array and the key used to access it.
-	unsigned int	manufacturer_id; //who made it.
+	unsigned int	manufacturer_id = 0; //who made it. id 0 is for base components
 	std::string		descr; //description.
+	
+	unsigned int	template_id // the id of the base of the component i.e. thrusters or laser
 	
 private:
 }
