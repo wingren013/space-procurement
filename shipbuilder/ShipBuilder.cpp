@@ -16,9 +16,9 @@ void				all_weapon_specialization(Ship_Class_Base *ship, unsigned int available_
 	}
 }
 
-Ship_Class_Base*	ShipBuilder::Ship_Builder(unsigned int specs, unsigned int max_tonnage)
+Ship_Class_Base*		ShipBuilder::Ship_Builder(unsigned int specs, unsigned int max_tonnage)
 {
-	Ship_Class_Base	new_ship = new Ship_Class_Base;
+	Ship_Class_Base	*new_ship = new Ship_Class_Base;
 	unsigned int	tonnage_per_spec = max_tonnage / specs;
 	
 	//this is temporary obviously and isn't really how the final design will work at all.

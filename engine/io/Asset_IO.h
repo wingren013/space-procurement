@@ -3,6 +3,7 @@
 #include <fstream>
 #include <queue>
 #include <cstdio.h>
+#include "tinydir.h"
 
 class Asset_IO
 {

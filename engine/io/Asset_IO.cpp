@@ -1,12 +1,5 @@
 #include "Asset_IO.h"
 
-float						random_float_in_range(float a, float b)
-{
-	float r = (float)rand() / (float)RAND_MAX
-	r *= b - a;
-	return (a + r);
-}
-
 std::queue<std::string>		*split_input(std::string read)
 {
 	std::queue<std::string> *split_input = new std::queue<std::string>;
