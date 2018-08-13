@@ -17,6 +17,8 @@ public:
 	float			get_accuracy();
 	int				get_damage();
 	float			get_fire_rate();
+	
+	Weapon_Base		*Component_Builder(Manufactuer_Base *manufacturer)
 protected:
 	//getter functions will modify the attribute by effectiveness.
 	//range

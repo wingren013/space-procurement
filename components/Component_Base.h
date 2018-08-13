@@ -12,6 +12,8 @@ public:
 	
 	int				get_hp();
 	
+	Component_base	*Component_Builder(Manufactuer_Base *manufacturer);
+	
 protected:
 	std::string		name;
 	
