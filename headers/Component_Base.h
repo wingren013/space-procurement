@@ -1,18 +1,21 @@
-#ifndef Component_Base
-# define Component_Base
+#ifndef COMPONENT_BASE_H
+# define COMPONENT_BASE_H
 
 #include <string>
+//#include "Manufacturer_Base.h"
 
 class Component_Base
 {
 	//pretty simple class. just serves to group all our components under one roof.
 public:
 	Component_Base();
-	~Component_Base();
+	virtual ~Component_Base();
 	
-	int				get_hp();
+	int				get_hp(void);
 	
-	Component_base	*Component_Builder(Manufactuer_Base *manufacturer);
+	virtual void			multiply_all_costs(float factor);
+	virtual void			multiply_all_attributes(float factor);
+	virtual unsigned int	Component_Builder(void *m);
 	
 protected:
 	std::string		name;
@@ -47,9 +50,9 @@ protected:
 	unsigned int	manufacturer_id = 0; //who made it. id 0 is for base components
 	std::string		descr; //description.
 	
-	unsigned int	template_id // the id of the base of the component i.e. thrusters or laser
+	unsigned int	template_id; // the id of the base of the component i.e. thrusters or laser.
 	
 private:
-}
+};
 
 #endif

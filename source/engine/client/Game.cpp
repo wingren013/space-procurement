@@ -2,7 +2,6 @@
 
 void		Game::initialize(void) //overload this with other game setup options like taking a mod or a save game
 {
-	std::vector<Weapon_Base*>	*loaded_weapons;
 	loaded_weapons = Asset_IO::load_weapons();
 }
 
@@ -13,3 +12,8 @@ void		Game::initialize(void) //overload this with other game setup options like 
 //void		Game::initializae(unsigned int options)
 
 //void		Game::initialize(string savepath)
+
+std::vector<Weapon_Base*>	Game::get_weapons()
+{
+	return (this->loaded_weapons);
+}

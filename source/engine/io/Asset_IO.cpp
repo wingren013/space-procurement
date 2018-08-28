@@ -42,23 +42,24 @@ void			handle_component_token(std::string token, std::queue<std::string> *value_
 	if (token == "name")
 		component->setname(value_input->pop());
 	else if (token == "effectiveness")
-		component->set_base_effectiveness = random_float_in_range(strtof(value_input->pop()), strtof(value_input->pop()));
+		component->set_base_effectiveness = random_float_in_range(strtof(value_input->pop().c_str(), 0), strtof(value_input->pop().c_str(), 0));
 	else if (token == "base_build_cost")
 		component->set_build_cost(stoi(value_input->pop()));
 	else if (token == "buildCostFactor")
-		component->set_buildCostFactor(random_float_in_range(strtof(value_input->pop()), strtof(value_input->pop())));
+		component->set_buildCostFactor(random_float_in_range(strtof(value_input->pop().c_str(), 0), strtof(value_input->pop().c_str()), 0));
 	else if (token == "base_buy_cost")
 		component->set_buy_cost(stoi(value_input->pop()));
 	else if (token = "buyCostFactor")
-		component->set_buyCostFactor(random_float_in_range(strtof(value_input->pop()), strtof(value_input->pop())));
+		component->set_buyCostFactor(random_float_in_range(strtof(value_input->pop().c_str(), 0), strtof(value_input->pop().c_str()), 0));
 	else if (token = "max_hp")
 		component->set_max_hp(stoi(value_input->pop()));
 	else if (token == "effectiveness_hp")
-		component->set_effectiveness_hp(random_float_in_range(strtof(value_input->pop()), strtof(value_input->pop)));
+		component->set_effectiveness_hp(random_float_in_range(strtof(value_input->pop(), 0), strtof(value_input->pop().c_str()), 0));
 	else if (token == "tonnage")
 		component->set_tonnage(stoi(value_input->pop()));
 	else if (token == "effectiveness_tonnage")
-		component->set_effectiveness_tonnage(random_float_in_range(strtof(value_input->pop(), strtof(value_input->pop()))));
+		component->set_effectiveness_tonnage(random_float_in_range(strtof(value_input->pop(), 0), strtof(value_input->pop(), 0)));
+}
 
 void			handle_weapon_token(std::string token, std::queue<string> *value_input, Weapon_Base *component)
 {

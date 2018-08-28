@@ -1,24 +1,30 @@
-#ifndef Weapon_Base
-# define Weapon_Base
+#ifndef WEAPON_BASE_H
+# define WEAPON_BASE_H
 
 #include "Component_Base.h"
+//#include "Manufacturer_Base.h"
 
-class	Weapon_Base : public Component_Base()
+//class Component_Base;
+
+class	Weapon_Base: public Component_Base
 {
 /* this class acts as the codifier for our weapons. 
 Individual base weapons i.e. plasma guns, missile launchers, etc... will be defined in text files 
 and loaded into the program as one of these. Components based on these i.e. Raytheon Fusion Gun
-will also be instaces of this class */
+will also be instances of this class */
 public:
 	Weapon_Base();
-	~Weapon_Base();
+	Weapon_Base(Weapon_Base *template_component, void *manufacturer);
+	virtual ~Weapon_Base();
 	
 	unsigned int	get_range();
 	float			get_accuracy();
-	int				get_damage();
+	int				get_damage(int range);
 	float			get_fire_rate();
 	
-	Weapon_Base		*Component_Builder(Manufactuer_Base *manufacturer)
+	virtual void			multiply_all_costs(float factor) override;
+	virtual void			multiply_all_attributes(float factor) override;
+	virtual unsigned int	Component_Builder(void *m) override; //uses a manufacturer_base*
 protected:
 	//getter functions will modify the attribute by effectiveness.
 	//range
@@ -37,7 +43,7 @@ protected:
 	
 	//damage
 	int				damage[4]; //damage corresponding to range band
-	bool			effectivenessModifiedByBase_ = true;
+	bool			effectivenessModifiedByBase_damage = true;
 	//float			damage_effectiveness_min;
 	//float			damage_effectivenss_max;
 	float			effectiveness_damage;
@@ -95,9 +101,9 @@ protected:
 	
 	float			tonnageFactor_turret = 2.0; //multiply tonnage by this if a turret. Defaults to double.
 	*/
-	char			allowed_mountings // bitmask. 1 for internal fixed, 2 for external fixed, 4 for turreted. 8 for silo. fixed mounts have a 45 degree angle. Turrets have a 90 degree angle. Silos are for launched weapons and can be fit in the center section unlike other weapons
+	char			allowed_mountings; // bitmask. 1 for internal fixed, 2 for external fixed, 4 for turreted. 8 for silo. fixed mounts have a 45 degree angle. Turrets have a 90 degree angle. Silos are for launched weapons and can be fit in the center section unlike other weapons
 	
 private:
-}
+};
 
 #endif

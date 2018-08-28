@@ -1,9 +1,12 @@
+#ifndef ASSET_IO_H
+# define ASSET_IO_H
+
 #include "Component_Base.h"
 #include <iostream>
 #include <fstream>
 #include <queue>
-#include <cstdio.h>
-#include "tinydir.h"
+#include <cstdio>
+#include <cstdlib>
 
 class Asset_IO
 {
@@ -27,4 +30,6 @@ class Asset_IO
 			"allowed_mountings", 0
 		};
 	private:
-}
+};
+
+#endif
