@@ -30,7 +30,10 @@ weapon attributes go here for structural reasons but you could put them before j
 #fire_rate 0.5 ; defaults to 1.0
 #effectiveness_fire_rate 0.5 2.0
 
-#armor_pen 0.7 ; 70% armor pen.
+#shield_pen 0.9 ; 10% shield pen
+#effectiveness_shield_pen 0.5 2.0
+
+#armor_pen 0.7 ; 30% armor pen.
 #effectiveness_armor_pen 0.5 2.0
 
 #allowed_mountings 7 ; bitmask 1 for external, 2 for internal, 4 for turreted, 8 for silo.

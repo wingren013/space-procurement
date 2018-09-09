@@ -1,1 +1,0 @@
-//build ships out of multiple specializations. i.e. the AI is designing a ship. It chooses the defense specialization then the defense specialization again and finally the speed specialization. This would result in a well defended ship with light armarment and above average speed.
